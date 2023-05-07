@@ -16,6 +16,48 @@ FlairStyle was built using the following technologies:
 - HTML
 - CSS
 
+## Getting Started with FlairStyleShop
+
+1. Clone the repository
+   - To get started with the FlairStyleShop project, you'll need to clone the repository. You can do this by running the following command in your terminal:
+
+     ```!/bin/bash
+     git clone git@github.com:FlairStyle/FlairStyleShop.git
+     ```
+
+2. Install Poetry
+   - Poetry is a package manager for Python that will make managing dependencies for this project much easier. You can install it by following the instructions on the Poetry website: <https://python-poetry.org/docs/#installation>
+
+3. Set up code linters and formatters
+   - The project is already configured with mypy, flake8, black, and isort. You just need to activate the virtual environment and install the dependencies. You can do this by running the following commands in your terminal from the project root directory:
+
+     ```!/bin/bash
+     # Activate the virtual environment
+     poetry shell
+
+     # Install the dependencies
+     poetry install
+     ```
+
+4. Create a .env file
+   - In order to run the project, you'll need to create a .env file in the root directory of the project. You can copy the .env-sample file and rename it to .env. Make sure to replace the `SECRET_KEY` value with a secret key that has been provided to you.
+
+5. Run database migrations
+   - The project is using SQLite as the database backend, so you don't need to set up a separate database server. You can simply run the following command in your terminal from the project root directory to apply the initial database migrations:
+
+     ```!/bin/bash
+     python manage.py migrate
+     ```
+
+6. Start the development server
+   - Once you've completed the above steps, you can start the development server by running the following command in your terminal from the project root directory:
+
+     ```!/bin/bash
+     python manage.py runserver
+     ```
+
+   - This should start the server at `http://localhost:8000/`, which you can open in your web browser to see the project homepage.
+
 ## Contributors
 
 - Misha: misha2003200@gmail.com
