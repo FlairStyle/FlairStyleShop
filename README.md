@@ -8,7 +8,7 @@ Our website features a page where you can select clothes based on the current we
 
 ## Tech Stack
 
-FlairStyle was built using the following technologies:
+FlairStyleShop are building using the following technologies:
 
 - Python
 - Django
@@ -57,6 +57,21 @@ FlairStyle was built using the following technologies:
      ```
 
    - This should start the server at `http://localhost:8000/`, which you can open in your web browser to see the project homepage.
+
+### Set up for PyCharm
+
+1. Configure PyCharm for Poetry
+   - Open the project in PyCharm and go to `Settings > Project > Python Interpreter`.
+   - Click on the gear icon and select `Add...`.
+   - Choose `Poetry Environment` and select the virtual environment for this project (usually located in `.venv` in the project directory).
+   - Click `OK` to save the changes.
+
+2. Configure PyCharm for linters and formatters
+   - In the same `Settings > Project > Python Interpreter` window, click on the gear icon again and select `Show All...`.
+   - Go to `Tools > Python Integrated Tools`.
+   - Under `Code Quality Tools`, set `Flake8` and `mypy` as the respective linters.
+   - Under `Code Style`, set `Black` and `isort` as the respective formatters.
+   - Click `Apply` to save the changes.
 
 ## Contributors
 
