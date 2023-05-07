@@ -25,6 +25,12 @@ FlairStyleShop are building using the following technologies:
      git clone git@github.com:FlairStyle/FlairStyleShop.git
      ```
 
+   - After cloning the repository, navigate to the project directory using the `cd` command:
+
+     ```!/bin/bash
+     cd FlairStyleShop
+     ```
+
 2. Install Poetry
    - Poetry is a package manager for Python that will make managing dependencies for this project much easier. You can install it by following the instructions on the Poetry website: <https://python-poetry.org/docs/#installation>
 
@@ -46,6 +52,7 @@ FlairStyleShop are building using the following technologies:
    - The project is using SQLite as the database backend, so you don't need to set up a separate database server. You can simply run the following command in your terminal from the project root directory to apply the initial database migrations:
 
      ```!/bin/bash
+     cd flairstyle_shop
      python manage.py migrate
      ```
 
