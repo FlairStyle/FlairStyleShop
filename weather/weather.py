@@ -4,6 +4,7 @@ from pprint import pprint
 
 weather_token = '541acc03b121e060cf2a823215a83ea1'
 
+
 def get_weather(city):
     try:
         r = requests.get(
@@ -21,15 +22,15 @@ def get_weather(city):
         humidity = data["main"]["humidity"]  # Влажность
         wind = data["wind"]["speed"]  # Ветер
 
-        return {"temperature": cur_weather,
-                "temperature_max": max_weather,
-                "temperature min": min_weather,
-                "weather_description": weather_description,
-                "humidity": humidity,
-                "wind": wind}
-
     except Exception as ex:
         print(ex)
+
+    return {"temperature": cur_weather,
+            "temperature_max": max_weather,
+            "temperature min": min_weather,
+            "weather_description": weather_description,
+            "humidity": humidity,
+            "wind": wind}
 
 
 def main():
