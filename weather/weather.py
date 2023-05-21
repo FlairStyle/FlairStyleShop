@@ -22,6 +22,7 @@ def get_weather(city):
         humidity = data["main"]["humidity"]  # Влажность
         wind = data["wind"]["speed"]  # Ветер
 
+
     except Exception as ex:
         print(ex)
 
