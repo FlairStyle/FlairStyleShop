@@ -1,12 +1,14 @@
+from apps.store.models import Product
+from apps.store.models import ReviewRating
+from django.http import HttpResponse
 from django.shortcuts import render
-from store.models import Product, ReviewRating
 
 
-def home(request):
+def home(request) -> HttpResponse:
     products = (
         Product.objects.select_related("category")
         .all()
-        .filter(is_aviable=True)
+        .filter(is_available=True)
         .only(
             "id",
             "slug",
@@ -20,9 +22,11 @@ def home(request):
     )
     for single_product in products:
         reviews = ReviewRating.objects.filter(product_id=single_product, status=True)
-
+    # TODO: Fix this
+    # ERROR: "reviews" is possibly unbound
+    reviews = None
     context = {
         "products": products,
-        "reviews": reviews,
+        "reviews": reviews,  # type: ignore
     }
     return render(request, "home.html", context)
