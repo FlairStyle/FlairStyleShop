@@ -41,7 +41,7 @@
                     aria-hidden="true"></i>
                   <i class="fa fa-star{% if single_product.average_review < 4.5 %}-o{% elif  single_product.average_review >= 4.5 and  single_product.average_review < 5 %}-half-o{% endif %}"
                     aria-hidden="true"></i>
-                  <span>{{ single_product.count_review }} reviews</span>
+                  <span>{{ single_product.count_review }} Отзывы</span>
                 </span>
               </div>
               <div class="mb-3">
@@ -53,7 +53,7 @@
                 <div class="item-option-select">
                   <h6>Choose Color</h6>
                   <select name="color" class='form-control' required>
-                    <option value="" disabled selected>Select</option>
+                    <option value="" disabled selected>Выбрать</option>
                     {% for i in single_product.variation_set.colors %}
                     <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
                     {% endfor %}
@@ -63,9 +63,9 @@
               <!-- row.// -->
               <div class="row">
                 <div class="item-option-select">
-                  <h6>Select Size</h6>
+                  <h6>Выбрать размер</h6>
                   <select name="size" class='form-control' required>
-                    <option value="" disabled selected>Select</option>
+                    <option value="" disabled selected>Выбрать</option>
                     {% for i in single_product.variation_set.sizes %}
                     <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
                     {% endfor %}
@@ -75,10 +75,10 @@
               <!-- row.// -->
               <hr />
               {% if single_product.stock <= 0 %}
-              <h5>Out of stock</h5>
+              <h5>Нет в наличии</h5>
               {% else %}
-              <button type='submit' class="btn btn-primary"> <span class="text">Add to
-                  cart</span> <i class="fas fa-shopping-cart"></i></button>
+              <button type='submit' class="btn btn-primary"> <span class="text">В корзину
+              </span> <i class="fas fa-shopping-cart"></i></button>
               {% endif %}
             </article>
             <!-- product-info-aside .// -->
@@ -97,9 +97,9 @@
         <form action="{% url 'submit_review' single_product.id %}" method="post">
 
           {% csrf_token %}
-          <h5>Write your Review</h5>
+          <h5>Написать отзыв</h5>
           <div>
-            <label>How do you rate this product?</label>
+            <label>Как оцените товар?</label>
             <br>
             <div class="rate">
               <input type="radio" name="rating" id="rating10" value="5" required>
@@ -124,20 +124,20 @@
               <label for="rating1" title="0.5" class="half"></label>
             </div>
             <br>
-            Review Title:
+            Заголовок отзыва:
             <input type="text" class="form-control" name="subject">
             <br>
-            Review:
+            Отзыв:
             <textarea name="review" rows="4" class="form-control"></textarea>
             <br>
             {% if user.is_authenticated %}
             {% if order_product %}
             <input type="submit" value="Submit Review" class="btn btn-primary">
             {% else %}
-            <p>You must purchase this product to post a review.
+            <p>Вы должны приобрести этот товар, чтобы оставить отзыв.
               {% endif %}
               {% else %}
-              <p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+              <p>Вы должны войти, чтобы оставить отзыв. <span><a href="{% url 'login' %}">Войти</a></span></p>
               {% endif %}
 
           </div>
@@ -145,7 +145,7 @@
         </form>
         <br>
         <header class="section-heading">
-          <h3>Customer Reviews</h3>
+          <h3>Отзывы покупателей</h3>
           <div class="rating-star">
             <span>
               <i class="fa fa-star{% if single_product.average_review < 0.5 %}-o{% elif  single_product.average_review >= 0.5 and  single_product.average_review < 1 %}-half-o{% endif %}"
@@ -158,7 +158,7 @@
                 aria-hidden="true"></i>
               <i class="fa fa-star{% if single_product.average_review < 4.5 %}-o{% elif  single_product.average_review >= 4.5 and  single_product.average_review < 5 %}-half-o{% endif %}"
                 aria-hidden="true"></i>
-              <span>{{ single_product.count_review }} reviews</span>
+              <span>{{ single_product.count_review }} Отзывы</span>
             </span>
           </div>
         </header>

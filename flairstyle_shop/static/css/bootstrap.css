@@ -23,8 +23,10 @@ Bootstrap with custom variables
   --gray: #545454;
   --gray-dark: #343a40;
   --gray-light: #969696;
+
   --primary: #3167eb;
   --secondary: #545454;
+
   --success: #00b517;
   --info: #17a2b8;
   --warning: #ff9017;
@@ -2386,8 +2388,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3167eb;
-  border-color: #3167eb;
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 .btn-primary:hover {
   color: #fff;
