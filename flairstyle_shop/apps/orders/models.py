@@ -1,7 +1,7 @@
 from apps.accounts.models import Account
-from django.db import models
 from apps.store.models import Product
 from apps.store.models import Variation
+from django.db import models
 
 
 class Payment(models.Model):

@@ -8,7 +8,7 @@ media
 **/migrations/*
 # Poetry #
 *.lock
-
+.idea
 # Backup files #
 *.bak
 

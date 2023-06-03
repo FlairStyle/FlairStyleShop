@@ -56,7 +56,6 @@ warn_return_any = true
 warn_unused_configs = true
 warn_unused_ignores = true
 exclude = '''(deprecated|migrations|old)/$|settings.py'''
-plugins = ["mypy_django_plugin.main"]
 
 
 [build-system]

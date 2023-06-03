@@ -1,9 +1,11 @@
-import requests
-import datetime
 from pprint import pprint
 
+import datetime
+import requests
+
+
 # weather_token = '541acc03b121e060cf2a823215a83ea1'  # с сайта openweathermap.org
-weather_token_ya = '3b23e8df-1028-45da-b96e-88afebfb84a9'
+weather_token_ya = "3b23e8df-1028-45da-b96e-88afebfb84a9"
 
 
 # с сайта openweathermap.org
@@ -34,6 +36,7 @@ weather_token_ya = '3b23e8df-1028-45da-b96e-88afebfb84a9'
 #             "humidity": humidity,
 #             "wind": wind}
 
+
 def get_weather_Ya():
     # "GET https://api.weather.yandex.ru/v2/informers?
     #  lat=<широта>
@@ -45,7 +48,7 @@ def get_weather_Ya():
     try:
         r = requests.get(
             f"https://api.weather.yandex.ru/v2/informers?lat=55.75396&lon=37.620393&[lang='ru_RU']",
-            headers={'X-Yandex-API-Key': weather_token_ya}
+            headers={"X-Yandex-API-Key": weather_token_ya},
         )
         data = r.json()
         # pprint(data)
@@ -54,6 +57,7 @@ def get_weather_Ya():
         print(ex)
 
     return data
+
 
 # def main():
 #     print(get_weather_Ya())
