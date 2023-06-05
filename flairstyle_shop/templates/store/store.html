@@ -70,8 +70,25 @@
                 </label>
               </div><!-- card-body.// -->
             </div>
-          </article> <!-- filter-group .// -->
           <article class="filter-group">
+            <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_weather" aria-expanded="true" class="">
+                <i class="icon-control fa fa-chevron-down"></i>
+                <h6 class="title">Фильтр по погоде</h6>
+              </a>
+            </header>
+            <div class="filter-content collapse show" id="collapse_weather" style="">
+              <div class="card-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="weatherFilterCheck">
+                  <label class="form-check-label" for="weatherFilterCheck">
+                    Подходящая под текущую погоду одежда
+                  </label>
+                </div>
+              </div> <!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group  .// -->
+          </article> <!-- filter-group .// -->
             <header class="card-header">
               <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
@@ -132,7 +149,7 @@
                 <div class="fix-height">
                   <a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
                   <div class="price-wrap mt-2">
-                    <span class="price">$ {{ product.price }}</span>
+                    <span class="price">{{ product.price }} ₽</span>
                   </div> <!-- price-wrap.// -->
                 </div>
                 <a href="{{ product.get_url }}" class="btn btn-block btn-primary">Подробнее
