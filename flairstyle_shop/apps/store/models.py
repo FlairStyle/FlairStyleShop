@@ -15,17 +15,16 @@ class Product(models.Model):
     description = models.TextField(max_length=500, blank=True)
     price = models.IntegerField()
     images = models.ImageField(upload_to="photos/products")
-    stock = models.IntegerField()
+    stock = models.IntegerField(null=False, default=0)
     is_available = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    suitable_temperature_min = models.IntegerField(null=False, default=-100)
+    suitable_temperature_max = models.IntegerField(null=False, default=100)
 
     def get_url(self: Self) -> str:
         return reverse("product_detail", args=[self.category.slug, self.slug])
-
-    def __str__(self: Self) -> str:
-        return self.product_name
 
     def average_review(self: Self) -> float | Literal[0]:
         reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(average=Avg("rating"))
@@ -40,6 +39,9 @@ class Product(models.Model):
         if reviews["count"] is not None:
             count = int(reviews["count"])
         return count
+
+    def __str__(self: Self) -> str:
+        return self.product_name
 
 
 class VariationManager(models.Manager):

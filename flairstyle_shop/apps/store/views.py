@@ -29,18 +29,21 @@ def store(request, category_slug=None) -> HttpResponse:
         products = (
             Product.objects.select_related("category").filter(category=categories, is_available=True).order_by("id")
         )
-        paginator = Paginator(products, 1)
+        paginator = Paginator(products, 10)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
     else:
         products = Product.objects.select_related("category").filter(is_available=True).order_by("id")
-        paginator = Paginator(products, 1)
+        paginator = Paginator(products, 10)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
+
+    links = Category.objects.all()
 
     context = {
         "products": page_obj,
         "products_count": page_obj.count,
+        "links": links,
     }
     return render(request, "store/store.html", context)
 
